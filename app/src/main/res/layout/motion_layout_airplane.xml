@@ -14,6 +14,7 @@
         app:Speed="-10dp"
         app:source="@drawable/background"/>
 
+
     <ImageView
         android:id="@+id/small_airplane_image"
         android:layout_width="92dp"

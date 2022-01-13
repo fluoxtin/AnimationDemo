@@ -7,6 +7,7 @@ import android.graphics.Canvas
 import android.graphics.Rect
 import android.graphics.drawable.BitmapDrawable
 import android.util.AttributeSet
+import android.util.DisplayMetrics
 import android.util.Log
 import android.view.View
 import androidx.core.graphics.drawable.toBitmap
@@ -38,6 +39,8 @@ class ScrollingImageView(context: Context, attributeSet: AttributeSet) :
 
             Log.d(TAG, "maxBitmapHeight : $maxBitmapHeight bitmap.height ${bitmap.height}")
             maxBitmapHeight = max(bitmap.height, maxBitmapHeight)
+
+
         } finally {
             ta.recycle()
         }
@@ -77,6 +80,10 @@ class ScrollingImageView(context: Context, attributeSet: AttributeSet) :
             // 计算需要的偏移量
             if (isStart && speed != 0f)
                 offset -= ((abs(speed) / NANOS_PER_SECOND) * frameTimeNano).toFloat()
+
+
+            val displayMetrics = DisplayMetrics()
+            display.getRealMetrics(displayMetrics)
 
             postInvalidateOnAnimation()
         }
