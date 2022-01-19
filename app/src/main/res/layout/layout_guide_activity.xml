@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.example.animationdemo.GuideTargetView
+        android:id="@+id/guide_target_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <TextView
+        android:id="@+id/notes_picked_tips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/notes_picked_tips_background"
+        android:text="发纸条机会已经用完啦\n去看看别的纸条吧"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:gravity="start|center"
+        android:padding="16dp"
+        app:layout_constraintRight_toLeftOf="@id/arrow"
+        app:layout_constraintTop_toTopOf="@id/arrow"
+        android:layout_marginTop="-48dp"
+        android:layout_marginEnd="8dp" />
+
+    <TextView
+        android:id="@+id/text_i_known"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="知道啦"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:background="@drawable/notes_picked_tips_round_rect"
+        app:layout_constraintTop_toBottomOf="@id/notes_picked_tips"
+        app:layout_constraintLeft_toLeftOf="@id/notes_picked_tips"
+        android:layout_marginTop="18dp" />
+
+    <ImageView
+        android:id="@+id/arrow"
+        android:layout_width="25dp"
+        android:layout_height="54dp"
+        android:src="@drawable/notes_picked_tips_arrow"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginBottom="8dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

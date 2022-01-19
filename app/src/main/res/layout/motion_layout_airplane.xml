@@ -1,19 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/airplane"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     app:layoutDescription="@xml/motion_layout_airplane_scene2">
-
-    <com.example.animationdemo.ScrollingImageView
-        android:id="@+id/background"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:Speed="-10dp"
-        app:source="@drawable/background"/>
-
 
     <ImageView
         android:id="@+id/small_airplane_image"
@@ -31,8 +24,11 @@
         android:id="@+id/imageView"
         android:layout_width="92dp"
         android:layout_height="92dp"
+        android:rotation="-30"
+        android:rotationX="51"
+        android:rotationY="-4"
         android:src="@drawable/airplane"
-        tools:layout_editor_absoluteX="566dp"
-        tools:layout_editor_absoluteY="633dp" />
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="564dp" />
 
-</androidx.constraintlayout.motion.widget.MotionLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

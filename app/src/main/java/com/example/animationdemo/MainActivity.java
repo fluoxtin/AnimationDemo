@@ -9,7 +9,9 @@ import android.animation.ObjectAnimator;
 import android.animation.PointFEvaluator;
 import android.animation.TypeEvaluator;
 import android.animation.ValueAnimator;
+import android.content.Intent;
 import android.graphics.Path;
+import android.graphics.Point;
 import android.graphics.PointF;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -72,7 +74,22 @@ public class MainActivity extends AppCompatActivity {
 //        mBinding.start.setOnClickListener(v -> {
 //            setValueAnimation(mBinding.airplane);
 //        });
-        startAnimation(mBinding.smallAirplaneImage);
+//        startAnimation(mBinding.smallAirplaneImage);
+        mBinding.smallAirplaneImage.post(() -> {
+            Intent intent = new Intent(this, GuideActivity.class);
+            int[] location = new int[2];
+            mBinding.smallAirplaneImage.getLocationInWindow(location);
+            Log.d(TAG, "location windows : " + location[0] + " " + location[1]);
+            mBinding.smallAirplaneImage.getLocationOnScreen(location);
+            Log.d(TAG, "location screen : " + location[0] + " " + location[1]);
+            Log.d(TAG, "pivot x y : " + mBinding.smallAirplaneImage.getPivotX() + " " + mBinding.smallAirplaneImage.getPivotY());
+            float pivotX = mBinding.smallAirplaneImage.getPivotX();
+            float pivotY = mBinding.smallAirplaneImage.getPivotY();
+            float radius = (float) Math.sqrt(Math.pow(pivotX, 2) + Math.pow(pivotY, 2));
+            intent.putExtra("radius", radius);
+            intent.putExtra("point", new Point((int) (location[0] + pivotX), (int) (location[1] + pivotX)));
+            startActivity(intent);
+        });
 
     }
 
